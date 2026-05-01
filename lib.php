@@ -60,8 +60,8 @@ class local_unusedquestions_question_bank_search_condition extends core_question
 
     public function display_options_adv() {
         echo "<br />\n";
-        echo $this->where;
-        echo "<br />\n";
+        //echo $this->where;
+        //echo "<br />\n";
         $options = array(self::ONLYUNUSED => get_string('onlyunused', 'local_unusedquestions'),
                 self::ONLYUSED => get_string('onlyused', 'local_unusedquestions'));
         $attr = array ('class' => 'searchoptions');
