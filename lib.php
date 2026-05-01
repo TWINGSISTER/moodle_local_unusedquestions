@@ -72,6 +72,9 @@ class local_unusedquestions_question_bank_search_condition extends core_question
     private function init() {
         global $DB;
         if ($this->onlyused == self::ONLYUSED) {
+            // table question_references contains a record only if a certain question is referenced i.e. used
+            // in a quiz. Using the field questionbankentryid we jump to the table question_versions
+            // in this we use the questionid to get the question id in table question.
 			$this->where = '(q.id IN (SELECT questionid FROM {question_references} qr JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid JOIN {question} qq ON qq.id = qv.questionid))';
 		} else if ($this->onlyused == self::ONLYUNUSED) {
 			$this->where = '(q.id NOT IN (SELECT questionid FROM {question_references} qr JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid JOIN {question} qq ON qq.id = qv.questionid))';
