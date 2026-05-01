@@ -1,5 +1,7 @@
-Used/ Unused Question search module for Moodle (http://moodle.org/) - Copyright (C) 2015 Ray Morris
+Used/ Unused Question search module for Moodle (http://moodle.org/) - Copyright (C) 2015 Ray Morris (C) 2026 TWINGSISTER
 Extends the Moodle question bank to find questions which are / are not used in a quiz.
+The filter has been tested on Moodle Version 4.0.4+ (Build: 20221007). 
+The only difference with previous versions is in lib.php adapting to the latest structure of Moodle DB. 
 
 This may be useful when adding questions to a quiz - no need to add questions which are already in the quiz.
 It may also be useful to determine if some questions should be removed or moved, since they aren't being used.
@@ -12,10 +14,10 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Gen
 http://www.gnu.org/copyleft/gpl.html
 
 Project Page:
-https://github.com/MorrisR2/moodle_local_unusedquestions
+* https://github.com/TWINGSISTER/moodle_local_unusedquestions
 
 Installation:
 * http://docs.moodle.org/20/en/Installing_contributed_modules_or_plugins
 
 Issue tracker:
-* https://github.com/MorrisR2/moodle_local_unusedquestions/issues
+* https://github.com/TWINGSISTER/moodle_local_unusedquestions/issues

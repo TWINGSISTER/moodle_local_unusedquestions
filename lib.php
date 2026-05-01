@@ -60,6 +60,8 @@ class local_unusedquestions_question_bank_search_condition extends core_question
 
     public function display_options_adv() {
         echo "<br />\n";
+        echo $this->where;
+        echo "<br />\n";
         $options = array(self::ONLYUNUSED => get_string('onlyunused', 'local_unusedquestions'),
                 self::ONLYUSED => get_string('onlyused', 'local_unusedquestions'));
         $attr = array ('class' => 'searchoptions');
@@ -70,10 +72,12 @@ class local_unusedquestions_question_bank_search_condition extends core_question
     private function init() {
         global $DB;
         if ($this->onlyused == self::ONLYUSED) {
-            $this->where = '(q.id IN (SELECT questionid FROM {quiz_slots}))';
-        } else if ($this->onlyused == self::ONLYUNUSED) {
-            $this->where = '(q.id NOT IN (SELECT questionid FROM {quiz_slots}))';
-        }
+			$this->where = '(q.id IN (SELECT questionid FROM {question_references} qr JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid JOIN {question} qq ON qq.id = qv.questionid))';
+		} else if ($this->onlyused == self::ONLYUNUSED) {
+			$this->where = '(q.id NOT IN (SELECT questionid FROM {question_references} qr JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid JOIN {question} qq ON qq.id = qv.questionid))';
+
+		}
+        
     }
 
-}
+}
